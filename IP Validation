@@ -1,0 +1,19 @@
+#Write an algorithm that will identify valid IPv4 addresses in dot-decimal format. IPs should be considered valid if they consist of four octets, with values between 0 and 255, inclusive.
+
+def is_valid_IP(strng):
+    splitted = strng.split(".")
+    if len(splitted) != 4:
+        return False
+    for el in splitted:
+        a = 0
+        if el.isdigit() == False:
+            return False
+        a = int(el)
+        #print(a)
+        if el.find('0') == 0 and a != 0:
+            #print(1)
+            return False
+        if a < 0 or a > 255:
+            #print(a)
+            return False
+    return True
